@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 export interface UserRequest {
   id: string;
+  name: string;
 }
 
 export interface User {
@@ -16,6 +17,6 @@ export interface UserResponse {
 @Injectable()
 export class UserService {
   getUser(data: UserRequest): UserResponse {
-    return { user: { id: data.id, name: 'John Doe' } };
+    return { user: { id: data.id, name: data.name } };
   }
 }
